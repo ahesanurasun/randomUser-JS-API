@@ -89,7 +89,7 @@ function displayUser(user) {
 
 const generateUserBtn = document.getElementById("generate");
 generateUserBtn.addEventListener("click", () => {
-  fetchApi(API_URL);
+  fetchUsers(API_URL);
 });
 
 
