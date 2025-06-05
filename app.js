@@ -1,15 +1,43 @@
+const userDiv = document.getElementById("user");
+const loader = document.getElementById("loader");
+const errorDiv = document.getElementById("error");
+
+
 const API_URL = `https://randomuser.me/api/`;
 
-function fetchApi(url) {
-  fetch(url)
-    .then((res) => res.json())
-    .then((user) => {
-        console.log(user.results[0]);
-        displayUser(user.results[0]);
-    });
-}
 
-const userDiv = document.getElementById("user");
+
+const fetchUsers = async (url) => {
+  try {
+    showLoder();
+    const response = await fetch(url);
+    console.log(response);
+    if(!response.ok){
+      throw new Error("Somthing want wrong.....");
+    }
+    const data = await response.json();
+    hideLoder();
+    displayUser(data.results[0]);
+  } catch (error) {
+    console.log(error);
+    hideLoder();
+    errorDiv.innerHTML = `<h4>
+          Something Went Wrong... Try again later
+        </h4>`;
+  }
+
+
+
+
+};
+const showLoder = () => {
+  loader.style.display = "block";
+};
+const hideLoder = () => {
+  loader.style.display = "none";
+};
+fetchUsers(API_URL);
+
 
 function displayUser(user) {
   userDiv.innerHTML = `
@@ -58,7 +86,6 @@ function displayUser(user) {
     `;
 };
 
-fetchApi(API_URL);
 
 const generateUserBtn = document.getElementById("generate");
 generateUserBtn.addEventListener("click", () => {

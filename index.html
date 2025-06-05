@@ -8,8 +8,12 @@
   <body>
     <h2 class="text-3xl font-bold text-center mt-5">Random Users</h2>
     <main>
-      <section id="user">
-        <!-- <div class=" max-w-[700px] mx-auto my-10">
+      <section class="max-w-[1100px] px-10 flex flex-col items-center justify-center">
+        <div id="loader">
+          <img src="loder.gif" alt="" class="w-[30%] mx-auto" />
+        </div>
+        <div id="user">
+          <!-- <div class=" max-w-[700px] mx-auto my-10">
         <a
           href="#"
           class="block rounded-md border border-gray-300 p-4 shadow-sm sm:p-6"
@@ -53,10 +57,11 @@
           </dl>
         </a>
       </div> -->
+        </div>
       </section>
       <div class="flex justify-center items-center">
         <a
-          class="group cursor-pointer  flex items-center justify-between gap-4 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 transition-colors hover:bg-transparent focus:ring-3 focus:outline-hidden"
+          class="group cursor-pointer flex items-center justify-between gap-4 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 transition-colors hover:bg-transparent focus:ring-3 focus:outline-hidden"
           id="generate"
         >
           <span
@@ -85,10 +90,11 @@
           </span>
         </a>
       </div>
+      <div id="error" class="max-w-[1100px] px-10 flex flex-col items-center justify-center mt-10">
+        
+      </div>
     </main>
 
-
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
